@@ -4,6 +4,8 @@ SECRET COLLECTOR
 Basically this showcases some of the security techniques around Meteor.js. You can fork the repository
 to play around with it or try setting up up your own project.
 
+An example can be found at `secret-collector.meteor.com`.
+
 Not Obvious Setup
 -----------------
 

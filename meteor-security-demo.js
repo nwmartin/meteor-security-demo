@@ -60,7 +60,7 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
 
   // Only allow insertion or removal if the userId is not null
-  // and is the same id as in the document.
+  // and is the same id as in the document. Deny works exactly the same way.
   Secrets.allow({
     insert: function (userId, doc) {
       return (userId && userId == doc.userId) ? true : false;
