@@ -3,7 +3,7 @@
 </head>
 
 <body>
-  <div id="login">
+  <div class="right">
     {{loginButtons align="right"}}
   </div>
   {{> securityApplication}}
@@ -13,6 +13,7 @@
   <h1>SECRET COLLECTOR</h1>
   <h4>LESS EVIL THAN GOOGLE</h4>
   {{#if loggedIn}}
+    {{> publicSecrets}}
     {{> secretAdder}}
     {{> secrets}}
   {{/if}}
@@ -28,7 +29,24 @@
   <h2>Your Secrets!</h1>
   <ul>
   {{#each secrets}}
-    <li>{{secret}} <input id="{{_id}}" type="button" value="x" /></li>
+    <li>
+      <input class="publishSecretBtn" data-secret="{{_id}}" type="button" value="Make Public" />
+      <input class="removeSecretBtn" data-secret="{{_id}}" type="button" value="x" />
+      {{secret}}
+    </li>
   {{/each}}
   <ul>
+</template>
+
+<template name="publicSecrets">
+  <div id="publicSecrets" class="right">
+    <h2>Not-So Secret Secrets!</h2>
+    <ul>
+    {{#each secrets}}
+      <li>
+        <input class="privateSecretBtn" data-secret="{{_id}}" type="button" value="Make Private" />{{secret}}
+      </li>
+    {{/each}}
+    <ul>
+  </div>
 </template>
