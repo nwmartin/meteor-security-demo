@@ -1,16 +1,34 @@
 <head>
-  <title>meteor-security-demo</title>
+  <title>SECRET COLLECTOR</title>
 </head>
 
 <body>
-  {{> secrets}}
+  <div id="login">
+    {{loginButtons align="right"}}
+  </div>
+  {{> securityApplication}}
 </body>
 
+<template name="securityApplication">
+  <h1>SECRET COLLECTOR</h1>
+  <h4>LESS EVIL THAN GOOGLE</h4>
+  {{#if loggedIn}}
+    {{> secretAdder}}
+    {{> secrets}}
+  {{/if}}
+</template>
+
+<template name="secretAdder">
+  <h2>Add a Secret!</h1>
+  <input id="secretText" type="text" />
+  <input id="secretButton" type="button" value="Add a Secret" />
+</template>
+
 <template name="secrets">
-  <h1>Secrets!</h1>
+  <h2>Your Secrets!</h1>
   <ul>
   {{#each secrets}}
-    <li>{{secret}}</li>
+    <li>{{secret}} <input id="{{_id}}" type="button" value="x" /></li>
   {{/each}}
   <ul>
 </template>

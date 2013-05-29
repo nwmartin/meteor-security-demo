@@ -1,1 +1,9 @@
 /* CSS declarations go here */
+
+#login {
+  float: right;
+}
+
+#secretText {
+  width: 20em;
+}
